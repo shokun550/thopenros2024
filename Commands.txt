@@ -1,0 +1,17 @@
+ssh -XC user@192.168.43.186
+ssh -XC user@172.20.10.4
+roscore
+roslaunch turtlebot_bringup minimal.launch
+roslaunch freenect_launch freenect.launch
+roslaunch ydlidar_ros_driver X2.launch
+rosrun rosserial_python serial_node.py /dev/ttyUSB0
+roslaunch turtlebot_navigation amcl_demo.launch map_file:=/home/user/map.yaml
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+rosrun fsm_bgn FMM.py
+rosrun fsm_bgn CML.py
+
+
+
+
+******* Servo test
+rostopic pub /Test std_msgs/String "A"
